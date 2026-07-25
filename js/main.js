@@ -1,3 +1,16 @@
+// ===== Destination Data =====
+const destinations = {
+  kerala:      { name: 'Kerala', price: '₹14,999', desc: 'God\'s Own Country - serene backwaters and lush greenery', days: 4, highlights: 'Houseboat Stay, Munnar Tea Gardens, Alleppey Backwaters, Kathakali Show' },
+  varanasi:    { name: 'Varanasi (Banaras)', price: '₹9,999', desc: 'Spiritual capital - ancient ghats and Ganga Aarti', days: 3, highlights: 'Ganga Aarti, Kashi Vishwanath, Sarnath, Silk Shopping' },
+  manali:      { name: 'Manali', price: '₹12,999', desc: 'Queen of hills - snow peaks and adventure sports', days: 5, highlights: 'Rohtang Pass, Solang Valley, Hadimba Temple, River Rafting' },
+  kasol:       { name: 'Kasol', price: '₹11,999', desc: 'Mini Israel of India - backpacker\'s paradise', days: 4, highlights: 'Kheerganga Trek, Parvati River, Malana Village, Cafe Hopping' },
+  shimla:      { name: 'Shimla', price: '₹10,999', desc: 'The Hill Queen - colonial charm and mountain views', days: 3, highlights: 'Mall Road, Ridge, Jakhoo Temple, Toy Train Ride' },
+  goa:         { name: 'Goa', price: '₹13,999', desc: 'Beach paradise - sun, sand, and vibrant nightlife', days: 4, highlights: 'Baga Beach, Old Goa Churches, Dudhsagar Falls, Night Market' },
+  jaipur:      { name: 'Jaipur, Rajasthan', price: '₹15,999', desc: 'Land of Kings - majestic forts and royal palaces', days: 4, highlights: 'Amber Fort, Hawa Mahal, City Palace, Jal Mahal' },
+  ladakh:      { name: 'Ladakh', price: '₹24,999', desc: 'Land of high passes - stunning monasteries and lakes', days: 7, highlights: 'Pangong Lake, Khardung La, Nubra Valley, Monasteries' },
+  darjeeling:  { name: 'Darjeeling', price: '₹16,999', desc: 'Queen of the Himalayas - tea gardens and toy train', days: 4, highlights: 'Tiger Hill Sunrise, Tea Gardens, Toy Train, Batasia Loop' },
+};
+
 // ===== Navbar Scroll Effect =====
 const navbar = document.getElementById('navbar');
 
@@ -23,7 +36,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   });
 });
 
-// Close nav when clicking outside
 document.addEventListener('click', (e) => {
   if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
     navLinks.classList.remove('active');
@@ -43,10 +55,10 @@ function animateCounters() {
     const updateCounter = () => {
       current += step;
       if (current < target) {
-        counter.textContent = Math.floor(current).toLocaleString();
+        counter.textContent = Math.floor(current).toLocaleString('en-IN');
         requestAnimationFrame(updateCounter);
       } else {
-        counter.textContent = target.toLocaleString();
+        counter.textContent = target.toLocaleString('en-IN');
       }
     };
 
@@ -77,39 +89,130 @@ function setupScrollReveal() {
   });
 }
 
-// ===== Search Form Handler =====
+// ===== Working Search =====
 const searchForm = document.getElementById('searchForm');
+const searchResults = document.getElementById('searchResults');
+const resultsTitle = document.getElementById('resultsTitle');
+const resultsDetails = document.getElementById('resultsDetails');
+const resultsViewDest = document.getElementById('resultsViewDest');
+const resultsBookNow = document.getElementById('resultsBookNow');
+const resultsClose = document.getElementById('resultsClose');
 
 searchForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const destination = document.getElementById('destination').value;
+  const dest = document.getElementById('destination').value;
   const checkin = document.getElementById('checkin').value;
   const checkout = document.getElementById('checkout').value;
-  const travelers = document.getElementById('travelers').value;
+  const travelers = parseInt(document.getElementById('travelers').value);
 
-  if (!destination) {
-    alert('Please select a destination');
+  if (!dest) {
+    shakeElement(document.getElementById('destination'));
     return;
   }
-
-  if (!checkin || !checkout) {
-    alert('Please select your travel dates');
+  if (!checkin) {
+    shakeElement(document.getElementById('checkin'));
     return;
   }
-
+  if (!checkout) {
+    shakeElement(document.getElementById('checkout'));
+    return;
+  }
   if (new Date(checkout) <= new Date(checkin)) {
-    alert('Check-out date must be after check-in date');
+    shakeElement(document.getElementById('checkout'));
     return;
   }
 
-  alert(
-    `Searching for trips to ${destination}\n` +
-    `Check-in: ${checkin}\n` +
-    `Check-out: ${checkout}\n` +
-    `Travelers: ${travelers}`
-  );
+  const data = destinations[dest];
+  const nights = Math.ceil((new Date(checkout) - new Date(checkin)) / (1000 * 60 * 60 * 24));
+  const basePrice = parseInt(data.price.replace(/[₹,]/g, ''));
+  const totalPerPerson = basePrice + (nights > data.days ? (nights - data.days) * 1500 : 0);
+  const totalAll = totalPerPerson * travelers;
+
+  resultsTitle.textContent = data.name + ' Trip Found!';
+  resultsDetails.innerHTML = `
+    <div class="result-row">
+      <span class="result-label">Destination</span>
+      <span class="result-value">${data.name}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Description</span>
+      <span class="result-value">${data.desc}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Duration</span>
+      <span class="result-value">${nights} Nights / ${nights + 1} Days</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Check-in</span>
+      <span class="result-value">${formatDate(checkin)}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Check-out</span>
+      <span class="result-value">${formatDate(checkout)}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Travelers</span>
+      <span class="result-value">${travelers} ${travelers === 1 ? 'Person' : 'People'}</span>
+    </div>
+    <div class="result-row">
+      <span class="result-label">Highlights</span>
+      <span class="result-value">${data.highlights}</span>
+    </div>
+    <div class="result-row result-total">
+      <span class="result-label">Total Cost</span>
+      <span class="result-value">&#8377;${totalAll.toLocaleString('en-IN')}</span>
+    </div>
+  `;
+
+  searchResults.style.display = 'block';
+  searchResults.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+  // Scroll to and highlight matching destination card
+  const card = document.querySelector(`[data-dest="${dest}"]`);
+  if (card) {
+    setTimeout(() => {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('dest-highlight');
+      setTimeout(() => card.classList.remove('dest-highlight'), 3000);
+    }, 600);
+  }
 });
+
+resultsClose.addEventListener('click', () => {
+  searchResults.style.display = 'none';
+});
+
+resultsViewDest.addEventListener('click', (e) => {
+  const dest = document.getElementById('destination').value;
+  const card = document.querySelector(`[data-dest="${dest}"]`);
+  if (card) {
+    e.preventDefault();
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    card.classList.add('dest-highlight');
+    setTimeout(() => card.classList.remove('dest-highlight'), 3000);
+  }
+});
+
+resultsBookNow.addEventListener('click', () => {
+  const dest = document.getElementById('destination').value;
+  const data = destinations[dest];
+  alert(`Great choice! To book your ${data.name} trip, call us at:\n\n📞 +91 98765 43210\n\nOr email: hello@desinomad.in\n\nOur team will get back to you within 2 hours!`);
+});
+
+function formatDate(dateStr) {
+  const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
+  return new Date(dateStr).toLocaleDateString('en-IN', options);
+}
+
+function shakeElement(el) {
+  el.style.borderColor = '#ef4444';
+  el.style.animation = 'shake 0.4s ease';
+  setTimeout(() => {
+    el.style.borderColor = '';
+    el.style.animation = '';
+  }, 600);
+}
 
 // ===== Newsletter Form =====
 const newsletterForm = document.getElementById('newsletterForm');
@@ -124,7 +227,7 @@ newsletterForm.addEventListener('submit', (e) => {
   }
 });
 
-// ===== Set minimum dates for booking =====
+// ===== Set minimum dates =====
 const today = new Date().toISOString().split('T')[0];
 const checkinInput = document.getElementById('checkin');
 const checkoutInput = document.getElementById('checkout');

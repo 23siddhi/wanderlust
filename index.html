@@ -108,7 +108,7 @@
       <div class="destination-grid">
 
         <!-- Kerala -->
-        <a href="#booking" class="dest-card dest-large">
+        <a href="#booking" class="dest-card dest-large" data-dest="kerala">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&h=600&fit=crop" alt="Kerala Backwaters" loading="lazy" />
           </div>
@@ -124,7 +124,7 @@
         </a>
 
         <!-- Varanasi -->
-        <a href="#booking" class="dest-card">
+        <a href="#booking" class="dest-card" data-dest="varanasi">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=600&h=400&fit=crop" alt="Varanasi Ghats" loading="lazy" />
           </div>
@@ -139,7 +139,7 @@
         </a>
 
         <!-- Manali -->
-        <a href="#booking" class="dest-card">
+        <a href="#booking" class="dest-card" data-dest="manali">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&h=400&fit=crop" alt="Manali Mountains" loading="lazy" />
           </div>
@@ -154,7 +154,7 @@
         </a>
 
         <!-- Kasol -->
-        <a href="#booking" class="dest-card">
+        <a href="#booking" class="dest-card" data-dest="kasol">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1571401835393-8c5f35328320?w=600&h=400&fit=crop" alt="Kasol Parvati Valley" loading="lazy" />
           </div>
@@ -169,7 +169,7 @@
         </a>
 
         <!-- Shimla -->
-        <a href="#booking" class="dest-card">
+        <a href="#booking" class="dest-card" data-dest="shimla">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1597074866923-dc7b098545f3?w=600&h=400&fit=crop" alt="Shimla Hill Station" loading="lazy" />
           </div>
@@ -184,7 +184,7 @@
         </a>
 
         <!-- Goa -->
-        <a href="#booking" class="dest-card">
+        <a href="#booking" class="dest-card" data-dest="goa">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&h=400&fit=crop" alt="Goa Beach" loading="lazy" />
           </div>
@@ -199,7 +199,7 @@
         </a>
 
         <!-- Rajasthan -->
-        <a href="#booking" class="dest-card">
+        <a href="#booking" class="dest-card" data-dest="jaipur">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=600&h=400&fit=crop" alt="Jaipur Rajasthan" loading="lazy" />
           </div>
@@ -214,7 +214,7 @@
         </a>
 
         <!-- Ladakh -->
-        <a href="#booking" class="dest-card">
+        <a href="#booking" class="dest-card" data-dest="ladakh">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1627894630338-a0712a244b0d?w=600&h=400&fit=crop" alt="Ladakh Landscape" loading="lazy" />
           </div>
@@ -229,7 +229,7 @@
         </a>
 
         <!-- Darjeeling -->
-        <a href="#booking" class="dest-card">
+        <a href="#booking" class="dest-card" data-dest="darjeeling">
           <div class="dest-image">
             <img src="https://images.unsplash.com/photo-1620766184920-eb2f502c5125?w=600&h=400&fit=crop" alt="Darjeeling Tea Gardens" loading="lazy" />
           </div>
@@ -433,7 +433,18 @@
           <form class="newsletter-form" id="newsletterForm">
             <input type="email" placeholder="Enter your email" required />
             <button type="submit" class="btn-primary">Subscribe</button>
-          </form>
+      </form>
+      <div class="search-results" id="searchResults" style="display:none;">
+        <div class="results-content">
+          <h3 id="resultsTitle"></h3>
+          <div class="results-details" id="resultsDetails"></div>
+          <div class="results-actions">
+            <a href="#destinations" class="btn-outline" id="resultsViewDest">View Destination</a>
+            <button class="btn-primary" id="resultsBookNow">Book Now - Call Us</button>
+          </div>
+          <button class="results-close" id="resultsClose">&times;</button>
+        </div>
+      </div>
         </div>
       </div>
     </div>
