@@ -246,4 +246,50 @@ checkinInput.addEventListener('change', () => {
 document.addEventListener('DOMContentLoaded', () => {
   animateCounters();
   setupScrollReveal();
+  initThemeSwitcher();
 });
+
+// ===== Theme Switcher =====
+const themeEmojis = { light: '\u{1F331}', dark: '\u{1F319}', ocean: '\u{1F30A}', sunset: '\u{1F305}', forest: '\u{1F332}' };
+
+function initThemeSwitcher() {
+  const saved = localStorage.getItem('desinomad-theme') || 'light';
+  applyTheme(saved);
+
+  const themeToggle = document.getElementById('themeToggle');
+  const themeDropdown = document.getElementById('themeDropdown');
+  const themeOptions = document.querySelectorAll('.theme-option');
+
+  themeToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    themeDropdown.classList.toggle('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!themeDropdown.contains(e.target) && !themeToggle.contains(e.target)) {
+      themeDropdown.classList.remove('active');
+    }
+  });
+
+  themeOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const theme = option.getAttribute('data-theme');
+      applyTheme(theme);
+      localStorage.setItem('desinomad-theme', theme);
+      themeDropdown.classList.remove('active');
+
+      themeOptions.forEach(o => o.classList.remove('active'));
+      option.classList.add('active');
+    });
+  });
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const themeToggle = document.getElementById('themeToggle');
+  if (themeToggle) themeToggle.textContent = themeEmojis[theme] || '\u{1F331}';
+
+  const activeOption = document.querySelector(`.theme-option[data-theme="${theme}"]`);
+  document.querySelectorAll('.theme-option').forEach(o => o.classList.remove('active'));
+  if (activeOption) activeOption.classList.add('active');
+}
