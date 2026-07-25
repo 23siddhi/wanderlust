@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wanderlust - Explore Incredible India</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">&#9992;</span> Wanderlust
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#destinations">Destinations</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#booking" class="btn-nav">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Explore <span class="highlight">Incredible India</span></h1>
+      <p class="hero-subtitle">From snow-capped mountains to golden beaches, from ancient ghats to royal palaces. Your next adventure awaits.</p>
+      <a href="#booking" class="btn-primary">Start Planning</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number" data-target="50">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Destinations</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="25000">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Happy Travelers</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number" data-target="200">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Tour Packages</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Search / Quick Booking Bar -->
+  <section class="search-bar" id="booking">
+    <div class="container">
+      <form class="search-form" id="searchForm">
+        <div class="form-group">
+          <label for="destination">Destination</label>
+          <select id="destination">
+            <option value="">Where to?</option>
+            <option value="kerala">Kerala</option>
+            <option value="varanasi">Varanasi (Banaras)</option>
+            <option value="manali">Manali</option>
+            <option value="kasol">Kasol</option>
+            <option value="shimla">Shimla</option>
+            <option value="goa">Goa</option>
+            <option value="jaipur">Jaipur (Pink City)</option>
+            <option value="ladakh">Ladakh</option>
+            <option value="darjeeling">Darjeeling</option>
+            <option value="rishikesh">Rishikesh</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="checkin">Check In</label>
+          <input type="date" id="checkin" />
+        </div>
+        <div class="form-group">
+          <label for="checkout">Check Out</label>
+          <input type="date" id="checkout" />
+        </div>
+        <div class="form-group">
+          <label for="travelers">Travelers</label>
+          <select id="travelers">
+            <option value="1">1 Person</option>
+            <option value="2" selected>2 People</option>
+            <option value="3">3 People</option>
+            <option value="4">4 People</option>
+            <option value="5">5+ People</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary btn-search">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Destinations Section -->
+  <section class="destinations" id="destinations">
+    <div class="container">
+      <div class="section-header">
+        <h2>Popular Destinations</h2>
+        <p>Handpicked destinations loved by travelers across India</p>
+      </div>
+      <div class="destination-grid">
+
+        <!-- Kerala -->
+        <a href="#booking" class="dest-card dest-large">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&h=600&fit=crop" alt="Kerala Backwaters" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <span class="dest-tag">Most Popular</span>
+            <h3>Kerala</h3>
+            <p>God's Own Country - serene backwaters and lush greenery</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;14,999</span>
+              <span class="dest-rating">&#9733; 4.9</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Varanasi -->
+        <a href="#booking" class="dest-card">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?w=600&h=400&fit=crop" alt="Varanasi Ghats" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <h3>Varanasi (Banaras)</h3>
+            <p>Spiritual capital - ancient ghats and Ganga Aarti</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;9,999</span>
+              <span class="dest-rating">&#9733; 4.8</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Manali -->
+        <a href="#booking" class="dest-card">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=600&h=400&fit=crop" alt="Manali Mountains" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <h3>Manali</h3>
+            <p>Queen of hills - snow peaks and adventure sports</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;12,999</span>
+              <span class="dest-rating">&#9733; 4.8</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Kasol -->
+        <a href="#booking" class="dest-card">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1571401835393-8c5f35328320?w=600&h=400&fit=crop" alt="Kasol Parvati Valley" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <h3>Kasol</h3>
+            <p>Mini Israel of India - backpacker's paradise in Parvati Valley</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;11,999</span>
+              <span class="dest-rating">&#9733; 4.7</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Shimla -->
+        <a href="#booking" class="dest-card">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1597074866923-dc7b098545f3?w=600&h=400&fit=crop" alt="Shimla Hill Station" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <h3>Shimla</h3>
+            <p>The Hill Queen - colonial charm and mountain views</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;10,999</span>
+              <span class="dest-rating">&#9733; 4.6</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Goa -->
+        <a href="#booking" class="dest-card">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=600&h=400&fit=crop" alt="Goa Beach" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <h3>Goa</h3>
+            <p>Beach paradise - sun, sand, and vibrant nightlife</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;13,999</span>
+              <span class="dest-rating">&#9733; 4.7</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Rajasthan -->
+        <a href="#booking" class="dest-card">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?w=600&h=400&fit=crop" alt="Jaipur Rajasthan" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <h3>Jaipur, Rajasthan</h3>
+            <p>Land of Kings - majestic forts and royal palaces</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;15,999</span>
+              <span class="dest-rating">&#9733; 4.8</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Ladakh -->
+        <a href="#booking" class="dest-card">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1627894630338-a0712a244b0d?w=600&h=400&fit=crop" alt="Ladakh Landscape" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <h3>Ladakh</h3>
+            <p>Land of high passes - stunning monasteries and lakes</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;24,999</span>
+              <span class="dest-rating">&#9733; 4.9</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Darjeeling -->
+        <a href="#booking" class="dest-card">
+          <div class="dest-image">
+            <img src="https://images.unsplash.com/photo-1620766184920-eb2f502c5125?w=600&h=400&fit=crop" alt="Darjeeling Tea Gardens" loading="lazy" />
+          </div>
+          <div class="dest-info">
+            <h3>Darjeeling</h3>
+            <p>Queen of the Himalayas - tea gardens and toy train</p>
+            <div class="dest-meta">
+              <span class="dest-price">From &#8377;16,999</span>
+              <span class="dest-rating">&#9733; 4.7</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages Section -->
+  <section class="packages" id="packages">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tour Packages</h2>
+        <p>All-inclusive packages tailored for every budget</p>
+      </div>
+      <div class="package-grid">
+        <div class="package-card">
+          <div class="package-badge">Budget</div>
+          <div class="package-icon">&#128176;</div>
+          <h3>Explorer</h3>
+          <div class="package-price"><span class="currency">&#8377;</span>9,999<span class="period">/person</span></div>
+          <ul class="package-features">
+            <li>&#10003; 3 Nights Accommodation</li>
+            <li>&#10003; Daily Breakfast</li>
+            <li>&#10003; Local Transfers</li>
+            <li>&#10003; Sightseeing</li>
+            <li class="disabled">&#10007; Flights / Trains Not Included</li>
+            <li class="disabled">&#10007; Travel Insurance</li>
+          </ul>
+          <a href="#booking" class="btn-outline">Choose Plan</a>
+        </div>
+        <div class="package-card featured">
+          <div class="package-badge">Best Value</div>
+          <div class="package-icon">&#11088;</div>
+          <h3>Adventurer</h3>
+          <div class="package-price"><span class="currency">&#8377;</span>24,999<span class="period">/person</span></div>
+          <ul class="package-features">
+            <li>&#10003; 5 Nights Accommodation</li>
+            <li>&#10003; All Meals Included</li>
+            <li>&#10003; Round-trip Transport</li>
+            <li>&#10003; Guided Tours</li>
+            <li>&#10003; Travel Insurance</li>
+            <li class="disabled">&#10007; Adventure Activities</li>
+          </ul>
+          <a href="#booking" class="btn-primary">Choose Plan</a>
+        </div>
+        <div class="package-card">
+          <div class="package-badge">Premium</div>
+          <div class="package-icon">&#128081;</div>
+          <h3>Voyager</h3>
+          <div class="package-price"><span class="currency">&#8377;</span>49,999<span class="period">/person</span></div>
+          <ul class="package-features">
+            <li>&#10003; 7 Nights Luxury Stay</li>
+            <li>&#10003; All Meals & Drinks</li>
+            <li>&#10003; Premium Transport</li>
+            <li>&#10003; Private Guide</li>
+            <li>&#10003; VIP Experiences</li>
+            <li>&#10003; Full Travel Insurance</li>
+          </ul>
+          <a href="#booking" class="btn-outline">Choose Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content">
+          <h2>Why Travel With Us?</h2>
+          <p>With over a decade of experience crafting unforgettable journeys across India, Wanderlust has become the trusted partner for thousands of travelers.</p>
+          <div class="features">
+            <div class="feature">
+              <div class="feature-icon">&#128737;</div>
+              <div>
+                <h4>Curated Experiences</h4>
+                <p>Every trip is thoughtfully designed by local experts who know India inside out.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">&#128274;</div>
+              <div>
+                <h4>Safe & Secure</h4>
+                <p>Travel with confidence knowing you have 24/7 support and comprehensive coverage.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">&#128176;</div>
+              <div>
+                <h4>Best Price Guarantee</h4>
+                <p>We match any comparable price and ensure you always get the best deal.</p>
+              </div>
+            </div>
+            <div class="feature">
+              <div class="feature-icon">&#128222;</div>
+              <div>
+                <h4>24/7 Support</h4>
+                <p>Our team is always available to assist you before, during, and after your trip.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="visual-grid">
+            <div class="visual-card vc1"><img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=400&h=300&fit=crop" alt="Indian Temple" loading="lazy" /></div>
+            <div class="visual-card vc2"><img src="https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=300&fit=crop" alt="Taj Mahal" loading="lazy" /></div>
+            <div class="visual-card vc3"><img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?w=400&h=300&fit=crop" alt="Indian Culture" loading="lazy" /></div>
+            <div class="visual-card vc4"><img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=400&h=300&fit=crop" alt="Indian Landscape" loading="lazy" /></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Travelers Say</h2>
+        <p>Real stories from real adventurers</p>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Kerala was absolutely magical! The houseboat stay in Alleppey and the tea gardens in Munnar were the highlights. Wanderlust made everything seamless."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #667eea;">AP</div>
+            <div>
+              <h4>Aisha Patel</h4>
+              <span>Kerala Trip, 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"The Ladakh road trip was a dream come true. From Pangong Lake to Khardung La, every moment was breathtaking. The team handled everything perfectly."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #f093fb;">RK</div>
+            <div>
+              <h4>Rahul Kapoor</h4>
+              <span>Ladakh Trip, 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Varanasi during Dev Deepawali was unforgettable. The Ganga Aarti, the silk shopping, the street food - everything was curated to perfection."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar" style="background: #43e97b;">PS</div>
+            <div>
+              <h4>Priya Sharma</h4>
+              <span>Varanasi Trip, 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Newsletter Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2>Get In Touch</h2>
+          <p>Have questions? We'd love to hear from you.</p>
+          <div class="contact-details">
+            <div class="contact-item">
+              <span class="contact-icon">&#128205;</span>
+              <span>42, Connaught Place, New Delhi - 110001</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">&#128222;</span>
+              <span>+91 98765 43210</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon">&#9993;</span>
+              <span>hello@wanderlust.in</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Facebook">f</a>
+            <a href="#" class="social-link" aria-label="Twitter">t</a>
+            <a href="#" class="social-link" aria-label="Instagram">ig</a>
+            <a href="#" class="social-link" aria-label="YouTube">yt</a>
+          </div>
+        </div>
+        <div class="newsletter">
+          <h3>Subscribe to Our Newsletter</h3>
+          <p>Get the latest travel deals and inspiration delivered to your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit" class="btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo"><span class="logo-icon">&#9992;</span> Wanderlust</a>
+          <p>Making travel dreams come true since 2015. Explore Incredible India with confidence and joy.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Destinations</h4>
+          <ul>
+            <li><a href="#booking">Kerala</a></li>
+            <li><a href="#booking">Manali</a></li>
+            <li><a href="#booking">Goa</a></li>
+            <li><a href="#booking">Ladakh</a></li>
+            <li><a href="#booking">Varanasi</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Cancellation Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Wanderlust. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
